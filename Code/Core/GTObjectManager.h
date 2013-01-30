@@ -22,25 +22,11 @@
 + (instancetype)sharedManager;
 
 + (void)setSharedManager:(GTObjectManager *)manager;
-/*
- GTObjectManager *manager = [GTObjectManager sharedManager];
- 
- [manager getEntityForClass:[Library class]
- andAbsoluteId:[NSDictionary dictionaryWithObjectsAndKeys: nil]
- success:^(Library *lib) {
- NSLog(@"Got library: %@! I'm alright", lib.name);
- }
- failure: nil];
- */
+
 - (void)entityForClass:(Class <GTResource>)entityClass
             andAbsoluteId:(NSDictionary *)absoluteId
                   success:(void (^)(id <GTResource> entity))success
                   failure:(void (^)(NSError *error))failure;
-
-- (void)collectionForClass:(Class <GTResource>)entityClass
-         andAbsoluteId:(NSDictionary *)absoluteId
-               success:(void (^)(id <GTResource> entity))success
-               failure:(void (^)(NSError *error))failure;
 
 - (void)createEntity:(id <GTResource>)entity
              success:(void (^)(id <GTResource> entity))success
